@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  yarilog-front-next:
+    user: node
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ../:/yarilog-front-next:delegated
+      - node_modules:/yarilog-front-next/node_modules
+      - /yarilog-front-next/.next
+    ports:
+      - 3000:3000
+    working_dir: /yarilog-front-next
+    tty: true
+    
+volumes:
+  node_modules:

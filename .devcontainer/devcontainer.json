@@ -1,0 +1,16 @@
+{
+  "name": "yarilog-front-next",
+  "dockerComposeFile": ["./docker-compose.yml"],
+  "service": "yarilog-front-next",
+  "workspaceFolder": "/yarilog-front-next",
+  "settings": {
+    "editor.tabSize": 2,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "postCreateCommand": "yarn",
+
+	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "node"
+}

@@ -9,6 +9,10 @@
     "files.trimFinalNewlines": true,
     "terminal.integrated.shell.linux": "/bin/bash"
   },
+  "extensions": [
+		"dbaeumer.vscode-eslint",
+		"eamodio.gitlens",
+	],
   "postCreateCommand": "yarn",
 
 	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.

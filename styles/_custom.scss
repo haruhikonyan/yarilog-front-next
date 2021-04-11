@@ -1,0 +1,49 @@
+$enable-responsive-font-sizes: true;
+// TODO $gray-500 で指定したい
+$input-placeholder-color: #adb5bd;
+
+@import './custom-bootstrap-variables';
+@import 'bootstrap/scss/bootstrap.scss';
+
+.yrl-pre-wrap {
+  white-space: pre-wrap;
+}
+.yrl-very-small {
+  font-size: 70%;
+}
+
+.yrl-between-string-separator {
+	display: flex;
+	align-items: center;
+}
+.yrl-between-string-separator:before, .yrl-between-string-separator:after {
+	content: "";
+	flex-grow: 1;
+	height: 1px;
+	background: black;
+	display: block;
+}
+.yrl-between-string-separator:before {
+	margin-right: .4em;
+}
+.yrl-between-string-separator:after {
+	margin-left: .4em;
+}
+// custom bootstrap breadcrumb
+.breadcrumb-item {
+  + .breadcrumb-item {
+    @include media-breakpoint-down(xs) {
+      padding-left: 0.25rem;
+    }
+
+    &::before {
+      @include media-breakpoint-down(xs) {
+        padding-right: 0.25rem;
+      }
+    }
+  }
+}
+// ボタンはすべて丸く
+.btn {
+  border-radius: 1rem;
+}

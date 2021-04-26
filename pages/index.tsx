@@ -1,6 +1,7 @@
 import { GetServerSideProps } from 'next';
 
 import SearchForm from '../components/SearchForm';
+import PlayingLogCarousel from '../components/PlayingLogCarousel';
 import * as axios from '../utils/axios';
 
 import { PlayingLog } from '../interfaces/PlayingLog';
@@ -56,6 +57,7 @@ const IndexPage: React.FC<Props> = ({
           {/* <ins 広告></ins> */}
           <p className="mt-3 mb-2">最新の演奏記録</p>
           {/* Carousel */}
+          <PlayingLogCarousel playingLogs={playingLogs}></PlayingLogCarousel>
           <div className="card mb-2">
             <div className="card-body">
               <h4 className="card-title">作曲家から探す</h4>

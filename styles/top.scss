@@ -17,3 +17,23 @@
 .yrl-top-btntext {
   font-size: 24px;
 }
+
+.yrl-instrument-link {
+  width: 104px;
+  font-size: 13px;
+}
+
+.yrl-conposer-link {
+  font-size: 13px;
+}
+
+.yrl-genre-link {
+  width: 96px;
+  font-size: 13px;
+}
+
+.yrl-info {
+  @include media-breakpoint-down(xs) {
+    font-size: 80%;
+  }
+}

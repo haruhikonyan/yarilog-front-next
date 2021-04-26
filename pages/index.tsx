@@ -1,7 +1,5 @@
 import { GetServerSideProps } from 'next';
 
-// import Link from 'next/link';
-// import Layout from '../components/Layout';
 import SearchForm from '../components/SearchForm';
 import * as axios from '../utils/axios';
 

@@ -2,7 +2,7 @@ import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 import { Alert } from 'reactstrap';
 
-import axios from '../utils/axios';
+import * as axios from '../utils/axios';
 
 type Props = {
   playingLogs: any[]
@@ -25,7 +25,7 @@ const IndexPage: React.FC<Props> = ({ playingLogs }: Props) => (
 
 export const getServerSideProps: GetServerSideProps = async() => {
   // TODO: api 呼び出し共通化
-  const playingLogs: any[] = (await axios.get('playing-logs')).data;
+  const playingLogs: any[] = (await axios.instance.get('playing-logs')).data;
   return { props: { playingLogs } };
 };
 export default IndexPage;

@@ -1,15 +1,19 @@
 import { GetServerSideProps } from 'next';
+import { Alert } from 'reactstrap';
+
 import Link from 'next/link';
 import Layout from '../components/Layout';
 
-import { Alert } from 'reactstrap';
-
 import axios from '../utils/axios';
 
+import { PlayingLog } from '../interfaces/PlayingLog';
+import { Composer } from '../interfaces/Composer';
+import { Genre } from '../interfaces/Tune';
+
 type Props = {
-  playingLogs: any[],
-  topPageLinkedComporsers: any[],
-  topPageLinkedGenres: any[],
+  playingLogs: PlayingLog[],
+  topPageLinkedComporsers: Composer[],
+  topPageLinkedGenres: Genre[],
 }
 
 const IndexPage: React.FC<Props> = ({ playingLogs, topPageLinkedComporsers, topPageLinkedGenres }: Props) => (

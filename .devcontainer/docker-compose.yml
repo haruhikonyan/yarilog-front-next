@@ -11,7 +11,7 @@ services:
       - node_modules:/yarilog-front-next/node_modules
       - /yarilog-front-next/.next
     ports:
-      - 3010:3010
+      - 3000:3000
     working_dir: /yarilog-front-next
     tty: true
 

@@ -3,7 +3,6 @@ export interface InquiryType {
   type: string;
   sortOrder: number;
 }
-
 export interface Inquiry {
   content: string;
   mailAddress?: string;

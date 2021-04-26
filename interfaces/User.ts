@@ -3,11 +3,11 @@ interface ExternalAccount {
 }
 
 export interface User {
-  id: string | undefined;
-  username: string | null;
-  mailAddress: string | null;
-  password: string | null;
+  id?: string;
+  username?: string;
+  mailAddress?: string;
+  password?: string;
   nickname: string;
-  description: string | null;
-  externalAccount: ExternalAccount | undefined;
+  description?: string;
+  externalAccount?: ExternalAccount;
 }

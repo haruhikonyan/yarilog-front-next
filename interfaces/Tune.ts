@@ -16,41 +16,29 @@ export interface PlayStyle {
 }
 
 export interface Tune {
-
   id: number | undefined;
-
   title: string;
-
-  description: string | null;
-
+  description?: string;
   playstyle: PlayStyle;
-
   genres: Genre[];
-
   // 平均難易度 0~5 小数点第１位
   averageDifficulty: number;
-
   // 平均体力 0~5 小数点第１位
   averagePhysicality: number;
-
   // 平均面白さ 0~5 小数点第１位
   averageInteresting: number;
-
   // 紐付いてる演奏記録の総数
   countPlayingLogs: number;
-
   composer: Composer;
-
-  playingLogs: PlayingLog[] | undefined;
-
+  playingLogs?: PlayingLog[];
 }
 
 export interface TuneSearchObject {
-  searchWord: string | null | undefined;
-  instrumentId: string | null | undefined;
-  composerId: string | null | undefined;
-  playstyleId: string | null | undefined;
-  genreId: string | null | undefined;
+  searchWord?: string;
+  instrumentId?: string;
+  composerId?: string;
+  playstyleId?: string;
+  genreId?: string;
 }
 
 export interface TunesWithCount {

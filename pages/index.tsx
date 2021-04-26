@@ -4,8 +4,7 @@ import { Alert } from 'reactstrap';
 // import Link from 'next/link';
 // import Layout from '../components/Layout';
 import SearchForm from '../components/SearchForm';
-
-import axios from '../utils/axios';
+import * as axios from '../utils/axios';
 
 import { PlayingLog } from '../interfaces/PlayingLog';
 import { Composer } from '../interfaces/Composer';
@@ -42,13 +41,13 @@ const IndexPage: React.FC<Props> = ({ playingLogs, topPageLinkedComporsers, topP
 
 export const getServerSideProps: GetServerSideProps = async() => {
   // TODO: api 呼び出し共通化
-  const playingLogs: any[] = (await axios.get('playing-logs', {
+  const playingLogs: any[] = (await axios.instance.get('playing-logs', {
     params: {
       limit: 6,
     },
   })).data;
-  const topPageLinkedComporsers: any[] = (await axios.get('composers/top-page-linked')).data;
-  const topPageLinkedGenres: any[] = (await axios.get('genres/top-page-linked')).data;
+  const topPageLinkedComporsers: any[] = (await axios.instance.get('composers/top-page-linked')).data;
+  const topPageLinkedGenres: any[] = (await axios.instance.get('genres/top-page-linked')).data;
   return { props: { playingLogs, topPageLinkedComporsers, topPageLinkedGenres } };
 };
 export default IndexPage;

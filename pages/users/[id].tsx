@@ -1,6 +1,6 @@
 import { GetServerSideProps } from 'next';
 
-import axios from '../../utils/axios';
+import * as axios from '../../utils/axios';
 
 type Props = {
   user: any
@@ -24,7 +24,7 @@ const ShowUser: React.FC<Props> = ({ user }: Props) => {
 
 export const getServerSideProps: GetServerSideProps = async({ params }) => {
   // TODO: api 呼び出し共通化
-  const user: any = (await axios.get(`users/${params?.id}`)).data;
+  const user: any = (await axios.instance.get(`users/${params?.id}`)).data;
   return { props: { user } };
 };
 

@@ -1,5 +1,5 @@
 import { User } from './User';
-import { Tune, PlayStyle } from './Tune';
+import { Tune, Playstyle } from './Tune';
 import { Instrument } from './Instrument';
 
 export enum PlayerLevel {
@@ -49,7 +49,7 @@ export interface PlayingLog {
   tune: Tune;
   user: User;
   // 演奏形態
-  playstyle: PlayStyle;
+  playstyle: Playstyle;
 }
 
 export interface PlayingLogsWithCount {

@@ -1,13 +1,17 @@
 import { GetServerSideProps } from 'next';
 
+import { getInstruments } from '../api/instruments';
+import { getTopPageLinkedComposers } from '../api/composers';
+import { getTopPageLinkedGenres } from '../api/genres';
+import { getPlayingLogs } from '../api/playingLogs';
+
+import { Composer } from '../interfaces/models/Composer';
+import { Genre } from '../interfaces/models/Tune';
+import { Instrument } from '../interfaces/models/Instrument';
+import { PlayingLog } from '../interfaces/models/PlayingLog';
+
 import SearchForm from '../components/SearchForm';
 import PlayingLogCarousel from '../components/PlayingLogCarousel';
-import * as axios from '../utils/axios';
-
-import { PlayingLog } from '../interfaces/PlayingLog';
-import { Composer } from '../interfaces/Composer';
-import { Genre } from '../interfaces/Tune';
-import { Instrument } from '../interfaces/Instrument';
 
 type Props = {
   playingLogs: PlayingLog[],
@@ -104,15 +108,10 @@ const IndexPage: React.FC<Props> = ({
 };
 
 export const getServerSideProps: GetServerSideProps = async() => {
-  // TODO: api 呼び出し共通化
-  const playingLogs: any[] = (await axios.instance.get('playing-logs', {
-    params: {
-      limit: 6,
-    },
-  })).data;
-  const topPageLinkedComposers: any[] = (await axios.instance.get('composers/top-page-linked')).data;
-  const topPageLinkedGenres: any[] = (await axios.instance.get('genres/top-page-linked')).data;
-  const instruments: Instrument[] = (await axios.instance.get('instruments')).data;
+  const playingLogs = await getPlayingLogs(6);
+  const topPageLinkedComposers = await getTopPageLinkedComposers();
+  const topPageLinkedGenres = await getTopPageLinkedGenres();
+  const instruments = await getInstruments();
   return {
     props: {
       playingLogs,

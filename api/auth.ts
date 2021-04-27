@@ -1,7 +1,8 @@
 import urljoin from 'url-join';
-import { User } from '../interfaces/models/User';
 
 import * as axios from '../utils/axios';
+
+import { User } from '../interfaces/models/User';
 
 const API_AUTH_URL = 'auth';
 

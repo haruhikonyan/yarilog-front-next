@@ -3,6 +3,7 @@ import Cookie from 'js-cookie';
 
 import { setToken, resetToken } from './axios';
 import { getAuthObject, login as postLogin } from '../api/auth';
+import { updateLatestLoginAt } from '../api/users';
 
 const useAuth = () => {
   const { data, mutate, error } = useSWR('authObject', getAuthObject, { shouldRetryOnError: false });
@@ -10,11 +11,13 @@ const useAuth = () => {
   const isLoading = !data && !error;
   const isLoggedIn = !error && data;
 
+  // TODO: jwt 期限切れの際の処理
+  // https://github.com/haruhikonyan/yarilog-front-next/issues/26
   const initLogin = () => {
     const token = Cookie.get('token');
     if (token !== undefined) {
       setToken(token);
-      // this.$api.updateLatestLoginAt();
+      updateLatestLoginAt();
       mutate();
     }
 

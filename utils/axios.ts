@@ -15,3 +15,7 @@ export const setToken = (token: string): void => {
 export const resetToken = (): void => {
   instance.defaults.headers.common.Authorization = undefined;
 };
+
+export const isExistsToken = () => {
+  return instance.defaults.headers.common.Authorization;
+};

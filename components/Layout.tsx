@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 import Link from 'next/link';
 import Head from 'next/head';
-import useAuth from '../utils/useAuth';
+import { useAuth } from '../utils/useAuth';
 
 type Props = {
   children?: ReactNode
@@ -12,6 +12,9 @@ type Props = {
 const Layout: React.FC<Props> = ({ children, title = 'This is the default title' }: Props) => {
   const { isLoggedIn, logout } = useAuth();
 
+  const onLogout = async() => {
+    await logout();
+  };
   return (
     <div>
       <Head>
@@ -38,7 +41,7 @@ const Layout: React.FC<Props> = ({ children, title = 'This is the default title'
                   <Link href="/mypage">
                     <a>マイページ</a>
                   </Link>{' '}
-                  <a onClick={logout}>logout</a>
+                  <a onClick={onLogout}>logout</a>
                 </>
               )
               : (

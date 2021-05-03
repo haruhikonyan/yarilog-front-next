@@ -1,4 +1,6 @@
-import { Instrument } from '../interfaces/Instrument';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { Instrument } from '../interfaces/models/Instrument';
 
 type Props = {
   placeholder: string;
@@ -15,7 +17,7 @@ const SearchForm: React.FC<Props> = ({ placeholder, instruments }: Props) => {
             <option value="">全楽器</option>
             {instruments.map(instrument => <option value={instrument.id}>{instrument.shortName}</option>)}
           </select>
-          <button type="submit" className="btn text-nowrap btn-primary yrl-right-border-round"></button>
+          <button type="submit" className="btn text-nowrap btn-primary yrl-right-border-round"><FontAwesomeIcon icon={faSearch} /></button>
         </div>
       </form>
     </>

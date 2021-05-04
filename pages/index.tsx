@@ -29,7 +29,7 @@ const IndexPage: React.FC<Props> = ({
 
   return (
     <>
-      {/* <header></header> */}
+      {/* TODO: <header></header> */}
       <div className="yrl-top-title jumbotron jumbotron-fluid text-white text-center border-0 px-2 py-3 mt-n3 mb-3">
         <div className="container">
           <h2 className="mt-0 p-3">音楽を奏でる<br className="d-sm-none" />すべてのひとへ</h2>
@@ -58,9 +58,9 @@ const IndexPage: React.FC<Props> = ({
               </div>
             </div>
           </div>
-          {/* <ins 広告></ins> */}
+          {/* TODO: <ins 広告></ins> */}
           <p className="mt-3 mb-2">最新の演奏記録</p>
-          {/* Carousel */}
+          {/* TODO: Carousel */}
           <PlayingLogCarousel playingLogs={playingLogs}></PlayingLogCarousel>
           <div className="card mb-2">
             <div className="card-body">
@@ -72,10 +72,11 @@ const IndexPage: React.FC<Props> = ({
             </div>
           </div>
         </div>
-        {/* <ins 広告></ins> */}
+        {/* TODO: <ins 広告></ins> */}
         <div className="card mb-2 text-center">
           <div className="card-body">
             <h4 className="card-title">みゅーぐ開発において</h4>
+            {/* TODO: 改行 */}
             <pre className="yrl-pre-wrap yrl-info text-start mb-0">
               日本国内で楽器を演奏する人は人口の10%、つまり1200万人以上いると言われています。
               {/* eslint-disable-next-line max-len */}
@@ -101,8 +102,8 @@ const IndexPage: React.FC<Props> = ({
           </div>
         </div>
       </div>
-      {/* <ins 広告></ins> */}
-      {/* <hooter></hooter> */}
+      {/* TODO: <ins 広告></ins> */}
+      {/* TODO: <hooter></hooter> */}
     </>
   );
 };

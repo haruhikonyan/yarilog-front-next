@@ -3,7 +3,6 @@ import { useState } from 'react';
 import {
   Carousel,
   CarouselItem,
-  CarouselControl,
   CarouselIndicators,
   CarouselCaption
 } from 'reactstrap';
@@ -32,18 +31,6 @@ const PlayingLogCarousel: React.FC<Props> = ({ playingLogs }: Props) => {
     );
   });
 
-  const next = () => {
-    if (animating) return;
-    const nextIndex = activeIndex === playingLogs.length - 1 ? 0 : activeIndex + 1;
-    setActiveIndex(nextIndex);
-  };
-
-  const previous = () => {
-    if (animating) return;
-    const nextIndex = activeIndex === 0 ? playingLogs.length - 1 : activeIndex - 1;
-    setActiveIndex(nextIndex);
-  };
-
   const goToIndex = (index: number) => {
     if (animating) return;
     setActiveIndex(index);
@@ -51,7 +38,7 @@ const PlayingLogCarousel: React.FC<Props> = ({ playingLogs }: Props) => {
 
   return (
     <>
-      <Carousel activeIndex={activeIndex} next={next} previous={previous} interval={4000}>
+      <Carousel activeIndex={activeIndex} next={() => {}} previous={() => {}} interval={4000}>
         {carouselItems}
         <CarouselIndicators items={playingLogs} activeIndex={activeIndex} onClickHandler={goToIndex} />
       </Carousel>

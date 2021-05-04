@@ -2,13 +2,13 @@ import { User } from './User';
 import { Tune, Playstyle } from './Tune';
 import { Instrument } from './Instrument';
 
-export enum PlayerLevel {
-  BEGINNER = '初心者',
-  INTERMEDIATE = '中級者',
-  SENIOR = '上級者',
-  UNIVERSITY_OF_MUSIC = '音大生',
-  PRO = 'プロ'
-}
+const PlayerLevel = {
+  BEGINNER: '初心者',
+  INTERMEDIATE: '中級者',
+  SENIOR: '上級者',
+  UNIVERSITY_OF_MUSIC: '音大生',
+  PRO: 'プロ',
+};
 
 export interface PlayingLog {
   id: string | undefined;
@@ -23,7 +23,7 @@ export interface PlayingLog {
   // 演奏団体
   team?: string;
   // 自分の演奏レベル
-  playerLevel: PlayerLevel;
+  playerLevel: typeof PlayerLevel[keyof typeof PlayerLevel];
   // 担当パート
   instrument: Instrument;
   // ポジション 1stとかバンダとか

@@ -1,5 +1,3 @@
-import { Genre } from '../interfaces/models/Tune';
-
 type Props = {
   genreName: string;
 }

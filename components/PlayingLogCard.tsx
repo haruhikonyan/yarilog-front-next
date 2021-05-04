@@ -23,7 +23,15 @@ const PlayingLogCard: React.FC<Props> = ({ playingLog }: Props) => {
           <div className="card">
             <div className="card-header pt-1 px-3">
               <div className="text-muted small text-center mb-0">{playingLog.playstyle.name}</div>
-              {playingLog.tune.genres.map((genre: Genre) => <GenreBadge genreName={genre.name}></GenreBadge>)}
+              {playingLog.tune.genres.map((genre: Genre) => {
+                return (
+                  <>
+                    <span className="mr-1">
+                      <GenreBadge genreName={genre.name}></GenreBadge>
+                    </span>
+                  </>
+                );
+              })}
               <h6>{ playingLog.tune.title }</h6>
               <h6 className="text-muted mb-0">
                 { playingLog.tune.composer.displayName }作曲{ playingLog.arranger }{ playingLog.edition }

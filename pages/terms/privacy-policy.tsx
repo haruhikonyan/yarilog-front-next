@@ -9,18 +9,16 @@ type Props = {
 const PrivacyPolicyPage: React.FC<Props> = ({ privacyPolicy }: Props) => {
 
   return (
-    <>
-      <section className="container">
-        <div>
-          <h1>
-            プライバシーポリシー
-          </h1>
-          <pre className="yrl-pre-wrap">
-            { privacyPolicy }
-          </pre>
-        </div>
-      </section>
-    </>
+    <section className="container">
+      <div>
+        <h1>
+          プライバシーポリシー
+        </h1>
+        <pre className="yrl-pre-wrap">
+          { privacyPolicy }
+        </pre>
+      </div>
+    </section>
   );
 };
 

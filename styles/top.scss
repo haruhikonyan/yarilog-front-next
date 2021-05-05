@@ -1,0 +1,42 @@
+.yrl-top-title {
+  background-image: url(/images/bg_top_title.png);
+  background-size: cover;
+  text-shadow: 2px 2px 0 black;
+}
+
+.yrl-top-btnarea {
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  font-size: 20px;
+}
+
+.yrl-top-number {
+  color: $number-color;
+}
+
+.yrl-top-btntext {
+  font-size: 24px;
+}
+
+.yrl-instrument-link {
+  width: 104px;
+  font-size: 13px;
+}
+
+.yrl-conposer-link {
+  font-size: 13px;
+}
+
+.yrl-genre-link {
+  width: 96px;
+  font-size: 13px;
+}
+
+.yrl-info {
+  p {
+    margin-bottom: 0;
+  }
+  @include media-breakpoint-down(xs) {
+    font-size: 80%;
+  }
+}

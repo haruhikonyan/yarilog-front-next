@@ -1,7 +1,10 @@
-import { useForm } from 'react-hook-form';
-
 import { useState } from 'react';
-import useAuth from '../../utils/useAuth';
+import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/router';
+
+import { useAuth } from '../../utils/useAuth';
+import { useRequireNoLogin } from '../../utils/useLoginGuard';
+
 import { getMe } from '../../api/auth';
 
 
@@ -11,6 +14,8 @@ type FormInputs = {
 };
 
 const LoginPage: React.FC = () => {
+  const router = useRouter();
+  useRequireNoLogin();
   const [loginErrorMessage, setLoginErrorMessage] = useState<string>();
   const { register, handleSubmit } = useForm<FormInputs>();
   const { login, logout } = useAuth();
@@ -18,7 +23,7 @@ const LoginPage: React.FC = () => {
   const postLogin = async(loginObject: FormInputs) => {
     try {
       await login(loginObject.loginId, loginObject.password);
-      // this.$router.push(this.callbackPath || '/mypage');
+      router.push(router.query?.callbackPath as string ?? '/mypage');
     }
     catch (e) {
       setLoginErrorMessage(e.message);

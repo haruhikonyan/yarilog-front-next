@@ -1,13 +1,32 @@
-const PrivacyPolicyPage: React.FC = () => (
-  <>
-    <h1>プライバシーポリシー</h1>
-    <p>
-      <a href="https://github.com/haruhikonyan/yarilog-front/blob/master/pages/terms/privacy-policy.vue" target="_blank" rel="noopener noreferrer">nuxt</a>
-    </p>
-    <p>
-      <a href="https://github.com/haruhikonyan/yarilog-front-next/issues/7" target="_blank" rel="noopener noreferrer">issue</a>
-    </p>
-  </>
-);
+import { GetServerSideProps } from 'next';
+
+import { getLatestPrivacyPolicy } from '../../api/terms';
+
+type Props = {
+  privacyPolicy: string
+}
+
+const PrivacyPolicyPage: React.FC<Props> = ({ privacyPolicy }: Props) => {
+
+  return (
+    <>
+      <section className="container">
+        <div>
+          <h1>
+            プライバシーポリシー
+          </h1>
+          <pre className="yrl-pre-wrap">
+            { privacyPolicy }
+          </pre>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export const getServerSideProps: GetServerSideProps = async() => {
+  const privacyPolicy = await getLatestPrivacyPolicy();
+  return { props: { privacyPolicy } };
+};
 
 export default PrivacyPolicyPage;
